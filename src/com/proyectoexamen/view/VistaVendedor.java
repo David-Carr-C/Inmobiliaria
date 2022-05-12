@@ -275,9 +275,10 @@ public class VistaVendedor extends JFrame implements ActionListener {
         if (e.getSource() == cotizarButton) {//Boton de cotizar
             String clave = txtClave.getText();
             String sueldo = JOptionPane.showInputDialog(null, "Inserte su sueldo");
+            String mensualidad = JOptionPane.showInputDialog(null, "Inserte las mensualidades (maximo 5)");
 
             try {
-                ControllerVendedor.Cotizar(clave,sueldo);
+                ControllerVendedor.Cotizar(clave, sueldo, mensualidad);
                 JOptionPane.showMessageDialog(null, "Se ha cotizado!\nRecibo creado en el archivo Recibo.txt");
             }catch (Exception exception) {
                 exception.printStackTrace();

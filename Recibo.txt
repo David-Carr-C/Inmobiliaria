@@ -1,0 +1,10 @@
+Clave del inmueble: 1111
+Tipo de inmueble: Casa
+Ubicacion del inmueble: Fray Andres de Grijalva
+Tamaño del area: 120.0
+Total a pagar: 1200000.0$
+Tener que pagar : 20000.0$ en 60.0 cuotas mensuales
+Numero de cuartos: 4
+Numero de baños: 2
+"Un lugar muy hermoso"
+Status del inmueble: Cuotas

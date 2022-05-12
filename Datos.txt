@@ -1,0 +1,18 @@
+1001
+Departamento
+San Antonio de Cuella
+50.0
+500000.0
+1
+1
+Un lugar centrico perfecto para las personas que tiene que ir de compras
+Disponible
+1111
+Casa
+Fray Andres de Grijalva
+120.0
+1000000.0
+4
+2
+Un lugar muy hermoso
+Cuotas

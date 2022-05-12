@@ -103,7 +103,7 @@ public class ArchivoDB {
     }
 
     public static void CrearReciboCuotas(String clave, String tipo, String ubicacion, double tamArea, double precio, int numCuartos,
-                                   int numBaños, String descripcionGeneral, String status) {//<-
+                                   int numBaños, String descripcionGeneral, String status,ArrayList<Double> arr) {//<-
         try{
             FileWriter archivo = new FileWriter("Recibo.txt");
             try(BufferedWriter almacen = new BufferedWriter(archivo)) {
@@ -111,9 +111,9 @@ public class ArchivoDB {
                 almacen.write("Tipo de inmueble: "+tipo + "\n");
                 almacen.write("Ubicacion del inmueble: "+ubicacion + "\n");
                 almacen.write("Tamaño del area: "+tamArea + "\n");
-                almacen.write("Total a pagar: "+precio +"$" +"\n");
-                almacen.write("Total a pagar : "+precio +"$" +"");//nuevo precio
-                almacen.write(" en "+precio +" cuotas mensuales" +"\n");//meses
+                almacen.write("Total a pagar: "+arr.get(0) +"$" +"\n");//nuevo precio
+                almacen.write("Tener que pagar "+arr.get(1) +"$" +"");
+                almacen.write(" en "+arr.get(2) +" cuotas mensuales" +"\n");//meses
                 almacen.write("Numero de cuartos: "+numCuartos + "\n");
                 almacen.write("Numero de baños: "+numBaños + "\n");
                 almacen.write("\""+descripcionGeneral +"\""+ "\n");
