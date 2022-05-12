@@ -89,7 +89,7 @@ public class Vista extends JFrame implements ActionListener {
         pBienvenida.setBackground(Color.LIGHT_GRAY);
         pRes.setBackground(Color.LIGHT_GRAY);
 
-        JLabel et = new JLabel(new ImageIcon("inmobi.JPG"));
+        JLabel et = new JLabel(new ImageIcon("inmobi.jpg"));
         pRes.add(et);
         et.setVisible(true);
 
@@ -195,7 +195,7 @@ public class Vista extends JFrame implements ActionListener {
             if (ingresado == contra) {
                 VistaPersonal vistaPersonal = new VistaPersonal();
                 this.dispose();
-                System.out.println("hola como estas");
+                //System.out.println("hola como estas");
 
             } else {
                 JOptionPane.showMessageDialog(null, "CONTRASEÑA INCORRECTA", "Error datos de entrada", JOptionPane.ERROR_MESSAGE);
@@ -293,7 +293,7 @@ public class Vista extends JFrame implements ActionListener {
             String status = JOptionPane.showInputDialog(" STATUS(APARTADO,VENDIDO,CUOTAS) ");
 
 
-            ArchivoDB.Guardar(clave, Ubicacion, tamaño, precio, cuartos, baños, status);
+            //ArchivoDB.Guardar(clave, Ubicacion, tamaño, precio, cuartos, baños, status);
 
 
         }

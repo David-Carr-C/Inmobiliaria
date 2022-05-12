@@ -64,4 +64,66 @@ public class ArchivoDB {
         }
         return datos;
     }
+
+    public static void EliminarDB() {
+        try{
+            FileWriter archivo = new FileWriter("Datos.txt");
+            try(BufferedWriter almacen = new BufferedWriter(archivo)) {
+                almacen.write("");
+                almacen.close();
+            }
+            archivo.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public static void CrearRecibo(String clave, String tipo, String ubicacion, double tamArea, double precio, int numCuartos,
+                                   int numBaños, String descripcionGeneral, String status) {//<-
+        try{
+            FileWriter archivo = new FileWriter("Recibo.txt");
+            try(BufferedWriter almacen = new BufferedWriter(archivo)) {
+                almacen.write("Clave del inmueble: "+clave + "\n");
+                almacen.write("Tipo de inmueble: "+tipo + "\n");
+                almacen.write("Ubicacion del inmueble: "+ubicacion + "\n");
+                almacen.write("Tamaño del area: "+tamArea + "\n");
+                almacen.write("Total a pagar: "+precio +"$" +"\n");
+                almacen.write("Numero de cuartos: "+numCuartos + "\n");
+                almacen.write("Numero de baños: "+numBaños + "\n");
+                almacen.write("\""+descripcionGeneral +"\""+ "\n");
+                almacen.write("Status del inmueble: "+status + "\n");
+                almacen.close();
+            }
+            archivo.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public static void CrearReciboCuotas(String clave, String tipo, String ubicacion, double tamArea, double precio, int numCuartos,
+                                   int numBaños, String descripcionGeneral, String status) {//<-
+        try{
+            FileWriter archivo = new FileWriter("Recibo.txt");
+            try(BufferedWriter almacen = new BufferedWriter(archivo)) {
+                almacen.write("Clave del inmueble: "+clave + "\n");
+                almacen.write("Tipo de inmueble: "+tipo + "\n");
+                almacen.write("Ubicacion del inmueble: "+ubicacion + "\n");
+                almacen.write("Tamaño del area: "+tamArea + "\n");
+                almacen.write("Total a pagar: "+precio +"$" +"\n");
+                almacen.write("Total a pagar : "+precio +"$" +"");//nuevo precio
+                almacen.write(" en "+precio +" cuotas mensuales" +"\n");//meses
+                almacen.write("Numero de cuartos: "+numCuartos + "\n");
+                almacen.write("Numero de baños: "+numBaños + "\n");
+                almacen.write("\""+descripcionGeneral +"\""+ "\n");
+                almacen.write("Status del inmueble: "+status + "\n");
+                almacen.close();
+            }
+            archivo.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+        }
+    }
 }

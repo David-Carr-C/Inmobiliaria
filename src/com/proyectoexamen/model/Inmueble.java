@@ -10,6 +10,7 @@ public abstract class Inmueble {
     private int numCuartos,numBaños;
 
     //Status = Disponible, apartado, vendido, cuotas
+    //Tipo = subclases
 
     public Inmueble(String clave, String tipo, String ubicacion, double tamArea, double precio, int numCuartos,
                     int numBaños, String descripcionGeneral, String status){

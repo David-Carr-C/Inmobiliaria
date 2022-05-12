@@ -1,16 +1,18 @@
 package com.proyectoexamen.view;
 
 import com.proyectoexamen.controller.ControllerPersonal;
+import com.proyectoexamen.model.Inmueble;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class VistaPersonal extends JFrame implements ActionListener {
     //Declaración de componentes
     private JPanel pBotones, pPersonal, pVendedor, pOpcionP, pOpcionV, pPrincipal; //Secciones
-    private JLabel lbTipo, lbClave, lbTamaño, lbCuarto, lbBaño, lbPrecio, lbStatus, lbPreL; //etiquetas
-    private JTextField txtTipo, txtClave, txtTamaño, txtCuartos, txtBaños, txtPrecio, txtStatus, txtPreL; //campos de texto
+    private JLabel lbTipo, lbClave, lbTamaño, lbCuarto, lbBaño, lbPrecio, lbStatus, lbUbicacion; //etiquetas
+    private JTextField txtTipo, txtClave, txtTamaño, txtCuartos, txtBaños, txtPrecio, txtStatus, txtUbicacion; //campos de texto
     private JRadioButton[] opciones; //4 radio buttons
     private ButtonGroup grupo; //Un grupo de botones
     private JLabel foto;
@@ -29,6 +31,7 @@ public class VistaPersonal extends JFrame implements ActionListener {
         setLocationRelativeTo(null);//Centrar la app enmedio
         setVisible(true);//Para que se vea, cuando ya todo este inicializado
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
 
     } //constructor
 
@@ -53,8 +56,8 @@ public class VistaPersonal extends JFrame implements ActionListener {
         txtCuartos = new JTextField("n/a",10);
         lbBaño = new JLabel("Num. de baños: ");
         txtBaños = new JTextField("n/a",10);
-        lbPreL = new JLabel("Ubicacion: ");
-        txtPreL = new JTextField("n/a",10);
+        lbUbicacion = new JLabel("Ubicacion: ");
+        txtUbicacion = new JTextField("n/a",10);
         lbStatus = new JLabel("Status: ");
         txtStatus = new JTextField("n/a",10);
 
@@ -70,8 +73,8 @@ public class VistaPersonal extends JFrame implements ActionListener {
         pPersonal.add(txtCuartos);
         pPersonal.add(lbBaño);
         pPersonal.add(txtBaños);
-        pPersonal.add(lbPreL);
-        pPersonal.add(txtPreL);
+        pPersonal.add(lbUbicacion);
+        pPersonal.add(txtUbicacion);
         pPersonal.add(lbStatus);
         pPersonal.add(txtStatus);//Se agregaron todos las etiquetas y botones
 
@@ -130,7 +133,7 @@ public class VistaPersonal extends JFrame implements ActionListener {
         txtTamaño.disable();
         txtStatus.disable();
         txtPrecio.disable();
-        txtPreL.disable();
+        txtUbicacion.disable();
         txtClave.disable();
     }
 
@@ -149,8 +152,8 @@ public class VistaPersonal extends JFrame implements ActionListener {
             txtStatus.setText("n/a");
             txtPrecio.disable();
             txtPrecio.setText("n/a");
-            txtPreL.disable();
-            txtPreL.setText("n/a");
+            txtUbicacion.disable();
+            txtUbicacion.setText("n/a");
             txtClave.enable();
             txtClave.setText("");
 
@@ -176,8 +179,8 @@ public class VistaPersonal extends JFrame implements ActionListener {
             txtStatus.setText("");
             txtPrecio.enable();
             txtPrecio.setText("");
-            txtPreL.enable();
-            txtPreL.setText("");
+            txtUbicacion.enable();
+            txtUbicacion.setText("");
             txtClave.enable();
             txtClave.setText("");
 
@@ -203,8 +206,8 @@ public class VistaPersonal extends JFrame implements ActionListener {
             txtStatus.setText("");
             txtPrecio.enable();
             txtPrecio.setText("");
-            txtPreL.enable();
-            txtPreL.setText("");
+            txtUbicacion.enable();
+            txtUbicacion.setText("");
             txtClave.enable();
             txtClave.setText("");
 
@@ -230,8 +233,8 @@ public class VistaPersonal extends JFrame implements ActionListener {
             txtStatus.setText("n/a");
             txtPrecio.enable();//
             txtPrecio.setText("");
-            txtPreL.disable();
-            txtPreL.setText("n/a");
+            txtUbicacion.disable();
+            txtUbicacion.setText("n/a");
             txtClave.disable();
             txtClave.setText("n/a");
 
@@ -251,37 +254,103 @@ public class VistaPersonal extends JFrame implements ActionListener {
             String precio = txtPrecio.getText();
             String noCuartos = txtCuartos.getText();
             String noBaños = txtBaños.getText();
-            String precioDeLista = txtPreL.getText();
+            String ubicacion = txtUbicacion.getText();
             String status = txtStatus.getText();
             String descripcionGeneral = JOptionPane.showInputDialog(null, "Descripcion general del inmueble");
 
-            ControllerPersonal.Alta(clave,tipoMueble,tamanio,precio,noCuartos,noBaños,precioDeLista,status,descripcionGeneral);
+            ControllerPersonal.Alta(clave,tipoMueble,tamanio,precio,noCuartos,noBaños,ubicacion,status,descripcionGeneral);
 
             JOptionPane.showMessageDialog(null, "Se ha dado de alta correctamente");
         }
 
         if (e.getSource() == bajasButton) {
-            //Controller
+            String clave = txtClave.getText();
+
+            ControllerPersonal.Baja(clave);
+
             JOptionPane.showMessageDialog(null, "Se ha dado de baja correctamente");
         }
 
         if (e.getSource() == modifButton) {
-            //Controller
+            String clave = txtClave.getText();
+            String tipoMueble = txtTipo.getText();
+            String tamanio = txtTamaño.getText();
+            String precio = txtPrecio.getText();
+            String noCuartos = txtCuartos.getText();
+            String noBaños = txtBaños.getText();
+            String ubicacion = txtUbicacion.getText();
+            String status = txtStatus.getText();
+            String descripcionGeneral = JOptionPane.showInputDialog(null, "Descripcion general del inmueble");
+
+            ControllerPersonal.Modificar(clave,tipoMueble,tamanio,precio,noCuartos,noBaños,ubicacion,status,descripcionGeneral);
+
             JOptionPane.showMessageDialog(null, "Se ha modificado correctamente");
         }
 
         if (e.getSource() == visButton) {
-            if (true) {//Se comparara si se encontro algun resultado
-                int n = 1;
-                //Controller
-                JOptionPane.showMessageDialog(null, "Opcion "+n+" Visualizamos el contenido");
-                JOptionPane.showMessageDialog(null, "Opcion "+n+" Visualizamos el contenido");
-                JOptionPane.showMessageDialog(null, "Opcion "+n+" Visualizamos el contenido");
-                elegir.setVisible(true);
-                comprar.setVisible(true);
-            } else {
-                elegir.setVisible(false);
-                comprar.setVisible(false);
+            String precio = txtPrecio.getText();
+            String numCuartos = txtCuartos.getText();
+            String numBanios = txtBaños.getText();
+
+            if (!precio.equals("") && !numBanios.equals("") && !numCuartos.equals("")){
+                ArrayList<Inmueble> inmueblesArray = ControllerPersonal.Visualizar(precio,numCuartos,numBanios);
+                int index = 1;
+                if (!inmueblesArray.isEmpty()) {
+                    for (Inmueble element:inmueblesArray) {
+                        if (element!=null) {
+                            JOptionPane.showMessageDialog(null, "Mueble "+index+"° \n"+element);
+                            index++;
+                        }
+                    }
+                }
+            } else
+            if (precio.equals("") && numBanios.equals("")) {
+                ArrayList<Inmueble> inmueblesArray = ControllerPersonal.VisualizarCuarto(numCuartos);
+                int index = 1;
+                if (!inmueblesArray.isEmpty()) {
+                    for (Inmueble element:inmueblesArray) {
+                        if (element!=null) {
+                            JOptionPane.showMessageDialog(null, "Mueble "+index+"° \n"+element);
+                            index++;
+                        }
+                    }
+                }
+            } else
+            if (numBanios.equals("") && numCuartos.equals("")) {
+                ArrayList<Inmueble> inmueblesArray = ControllerPersonal.Visualizar(precio);
+                int index = 1;
+                if (!inmueblesArray.isEmpty()) {
+                    for (Inmueble element:inmueblesArray) {
+                        if (element!=null) {
+                            JOptionPane.showMessageDialog(null, "Mueble "+index+"° \n"+element);
+                            index++;
+                        }
+                    }
+                }
+            }else
+            if (precio.equals("")) {
+                ArrayList<Inmueble> inmueblesArray = ControllerPersonal.VisualizarNumero(numCuartos,numBanios);
+                int index = 1;
+                if (!inmueblesArray.isEmpty()) {
+                    for (Inmueble element:inmueblesArray) {
+                        if (element!=null) {
+                            JOptionPane.showMessageDialog(null, "Mueble "+index+"° \n"+element);
+                            index++;
+                        }
+                    }
+                }
+            }else
+            if (numBanios.equals("")) {
+                ArrayList<Inmueble> inmueblesArray = ControllerPersonal.VisualizarPrecioCuarto(precio,numCuartos);
+                int index = 1;
+                if (!inmueblesArray.isEmpty()) {
+                    for (Inmueble element:inmueblesArray) {
+                        if (element!=null) {
+                            JOptionPane.showMessageDialog(null, "Mueble "+index+"° \n"+element);
+                            index++;
+                        }
+                    }
+                }
             }
 
         }
