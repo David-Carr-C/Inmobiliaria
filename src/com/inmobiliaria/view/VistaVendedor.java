@@ -22,7 +22,7 @@ public class VistaVendedor extends JFrame implements ActionListener {
     private JButton comprar;
 
     public VistaVendedor(){
-        super("EMPRESA DE MUEBLES");//Titulo
+        super("EMPRESA DE INMUEBLES");//Titulo
 
         initComponentes();
         add(pBotones, BorderLayout.EAST);

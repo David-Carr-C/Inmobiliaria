@@ -21,7 +21,7 @@ public class VistaPersonal extends JFrame implements ActionListener {
     private JButton comprar;
 
     public VistaPersonal(){
-        super("EMPRESA DE MUEBLES");//Titulo
+        super("EMPRESA DE INMUEBLES");//Titulo
 
         initComponentes();
         add(pBotones, BorderLayout.EAST);
