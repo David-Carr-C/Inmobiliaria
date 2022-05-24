@@ -1,10 +1,10 @@
-Clave del inmueble: 1111
-Tipo de inmueble: Casa
-Ubicacion del inmueble: Fray Andres de Grijalva
-Tamaño del area: 120.0
-Total a pagar: 1200000.0$
-Tener que pagar : 20000.0$ en 60.0 cuotas mensuales
-Numero de cuartos: 4
-Numero de baños: 2
-"Un lugar muy hermoso"
+Clave del inmueble: 1001
+Tipo de inmueble: Departamento
+Ubicacion del inmueble: San Antonio de Cuella
+Tamaño del area: 50.0
+Total a pagar: 650000.0$
+Tener que pagar : 10000.0$ en 65.0 cuotas mensuales
+Numero de cuartos: 1
+Numero de baños: 1
+"Un lugar centrico perfecto para las personas que tiene que ir de compras"
 Status del inmueble: Cuotas
